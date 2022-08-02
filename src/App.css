@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+    /* ===== Colors ===== */
+    --body-color: #F4F6F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+::selection{
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+body.dark{
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body.dark .chart-wrapper { box-shadow: none; }
+
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    padding: 1.5rem;
+    background-color: var(--primary-color-light);
+    transition: var(--tran-05);
+}
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+.sidebar.close ~ .home{
+    left: 88px;
+    height: 100vh;
+    width: calc(100% - 88px);
+}
+body.dark .home .text{
+    color: var(--text-color);
+}
+
+.bottom-content li {
+    background-color: var(--primary-color-light);
+    border-radius: 6px; 
+    transition: .5s;
+}
+
+.bottom-content li:hover {
+    cursor: pointer;
+    opacity: .7;
+    transition-duration: .5s;
+}
+
+.breadcrumb-item a {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+
+.appointments-list {
+    overflow-y: scroll;
+}
+
+.appointments-list::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: var(--primary-color-light);
+}
+
+.appointments-list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	
+	background-color: #E5E7E9;
+}
+
+.appointment-info-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 20rem;
+    min-height: 200px;
+    padding: 1.5rem;
+    padding-top: 0px;
+    border-radius: 6px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.appointment-info-item .appointment-details-title {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: .5rem;
+    border-top: 1px solid lightgray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #F8F9F9;
 }

@@ -1,23 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Routes,
+} from "react-router-dom";
+import "./App.css";
+
+import Dashboard from "./components/Dashboard/Dashboard";
+import Auth from "./components/Auth";
+import CreateAppointment from "./components/Patient/CreateAppointment";
+import { AuthContext } from "./context/auth-context";
+import { useAuth } from "./hooks/auth-hook";
 
 function App() {
+  const { token, login, logout, userId, user } = useAuth();
+
+  let routes;
+
+  if (token) {
+    routes = (
+      <Routes>
+        <Route path="/*" element={<Dashboard />} exact />
+        <Route
+          path="/create-appointement"
+          element={<CreateAppointment />}
+          exact
+        />
+      </Routes>
+    );
+  } else {
+    routes = (
+      <Routes>
+        <Route path="/" element={<Auth />} exact />
+        <Route
+          path="/create-appointement"
+          element={<CreateAppointment />}
+          exact
+        />
+      </Routes>
+    );
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContext.Provider
+        value={{
+          isLoggedIn: !!token,
+          token: token,
+          userId: userId,
+          user: user,
+          login: login,
+          logout: logout,
+        }}
+      >
+        <Router>{routes}</Router>
+      </AuthContext.Provider>
     </div>
   );
 }

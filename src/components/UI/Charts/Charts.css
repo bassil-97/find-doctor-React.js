@@ -1,0 +1,7 @@
+.chart-wrapper {
+    padding: 2rem;
+    background-color: var(--sidebar-color);
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-bottom: 16px;
+}

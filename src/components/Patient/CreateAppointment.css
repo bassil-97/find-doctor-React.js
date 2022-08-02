@@ -1,0 +1,17 @@
+.appointment-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: white;
+    background: url('../../Assets/layered-waves-haikei.svg') center no-repeat;
+    background-size: cover;
+}
+
+
+.create-appointment-title {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,12 @@
+.main-form {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../Assets/blob-scene-haikei.svg') center;
+    background-size: cover;
+}
+
+.form-container {
+    padding: 4rem;
+}

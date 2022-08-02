@@ -1,0 +1,13 @@
+.profile {
+    padding: 2rem 1.5rem;
+}
+
+.update-doctor-form {
+    width: 70%;
+}
+
+@media screen and (max-width: 992px) {
+    .update-doctor-form {
+        width: 100%;
+    }
+}

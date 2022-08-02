@@ -1,0 +1,29 @@
+.data-item {
+    min-width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 10px;
+    height: 100%;
+}
+
+.data-item h2 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 0px;
+}
+
+.data-item h6 {
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.637);
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 992px) {
+    .data-item {
+        width: 100%;
+    }
+}
